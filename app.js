@@ -1,4 +1,4 @@
-const config = require('./config.json')
+const config = require(`./config/${process.env.NODE_ENV}.json`)
 const TogglClient = require('./toggl/togglClient');
 const TimeEntry = require('./timeEntry');
 

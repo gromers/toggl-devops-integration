@@ -1,2 +1,5 @@
+# I don't want my node modules in the repo
 node_modules/
-config.Development.json
+
+# Contains credentials for talking to toggl and devops
+config/development.json
