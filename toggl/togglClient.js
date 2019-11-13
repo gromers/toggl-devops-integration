@@ -1,4 +1,5 @@
 const axios = require('axios').default;
+const moment = require('moment');
 
 const TogglTimeEntry = require('./togglTimeEntry');
 
@@ -14,11 +15,15 @@ module.exports = class TogglClient {
   }
 
   async fetch(options) {
+    if (!options.from || !options.to) {
+      throw new Error('No valid daterange provided');
+    }
+
     const togglResponseData = await axios.get(
       'https://www.toggl.com/api/v8/time_entries', {
         params: {
-          start_date: '2019-11-05T00:00:00+02:00',
-          end_date: '2019-11-13T00:00:00+02:00',
+          start_date: moment(options.from).format(),
+          end_date: moment(options.to).format(),
         },
         headers: {
           Authorization: this.basicAuth,
