@@ -3,3 +3,6 @@ node_modules/
 
 # Contains credentials for talking to toggl and devops
 config/development.json
+
+# For now, no vscode stuff in this repo
+.vscode/
